@@ -1,0 +1,105 @@
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", Arial, sans-serif;
+}
+a:link, a:visited, a:hover, a:active{
+    text-decoration: none;
+    font-weight: inherit;
+}
+body{
+    background-color: #333;
+    color: white;
+}
+.header{
+    background-color: #34495e;
+    padding-top: 75px;
+    padding-bottom: 75px;
+    font-size: 2em;
+    font-weight: 200;
+    text-transform: uppercase;
+    text-align: center;
+}
+.question{
+    font-size: 1em;
+    line-height: 1.5em;
+    text-align: center;
+    background-color: #8e44ad;
+    box-sizing: border-box;
+    padding-right: 20px;
+    padding-left: 20px;
+    p{
+        display: inline-block;
+        text-align: left;
+        text-transform: none
+    }
+}
+.republican{ 
+    text-transform: lowercase;
+    background-color: #c0392b;
+}
+.democrat{ 
+    text-transform: lowercase;
+    background-color: #2A5682;
+}
+.form{
+    background-color: #333;
+}
+#whosaidthisshit{
+    display: inline-block;
+    .answer{
+        text-align: left;
+        font-weight: 200;
+        text-transform: uppercase;
+        margin: 0 10px;
+    }
+    .error{
+        font-size: .8em;
+        text-transform: none;
+        font-weight: 700;
+        padding: 5px;
+    }
+    #correct{
+        background-color: #4BA82C;
+    }
+    #incorrect{
+        background-color: #c0392b;
+    }
+    input[type="submit"],
+    a.button{
+        text-transform: capitalize;
+        width: 300px;
+        display: block;
+        border-radius: 4px;
+        padding: 10px;
+        box-sizing: border-box;
+        padding: 10px 30px;
+        border: 0;
+        color: white;
+        font-size: .5em;
+        font-weight: 400;
+        margin-top: 20px;
+        background-color: #C9C9C9;
+        &:hover{
+            background-color: #8e44ad;
+            @include transition(ease-in, .3s);
+        }
+    }
+}
+ul.quotes{
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    max-width: 600px;
+    min-width: 300px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: .8em;
+    line-height: 2em;
+}

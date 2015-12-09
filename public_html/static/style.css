@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", Arial, sans-serif; }
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  font-weight: inherit; }
+
+body {
+  background-color: #333;
+  color: white; }
+
+.header {
+  background-color: #34495e;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  font-size: 2em;
+  font-weight: 200;
+  text-transform: uppercase;
+  text-align: center; }
+
+.question {
+  font-size: 1em;
+  line-height: 1.5em;
+  text-align: center;
+  background-color: #8e44ad;
+  box-sizing: border-box;
+  padding-right: 20px;
+  padding-left: 20px; }
+  .question p {
+    display: inline-block;
+    text-align: left;
+    text-transform: none; }
+
+.republican {
+  text-transform: lowercase;
+  background-color: #c0392b; }
+
+.democrat {
+  text-transform: lowercase;
+  background-color: #2A5682; }
+
+.form {
+  background-color: #333; }
+
+#whosaidthisshit {
+  display: inline-block; }
+  #whosaidthisshit .answer {
+    text-align: left;
+    font-weight: 200;
+    text-transform: uppercase;
+    margin: 0 10px; }
+  #whosaidthisshit .error {
+    font-size: .8em;
+    text-transform: none;
+    font-weight: 700;
+    padding: 5px; }
+  #whosaidthisshit #correct {
+    background-color: #4BA82C; }
+  #whosaidthisshit #incorrect {
+    background-color: #c0392b; }
+  #whosaidthisshit input[type="submit"],
+  #whosaidthisshit a.button {
+    text-transform: capitalize;
+    width: 300px;
+    display: block;
+    border-radius: 4px;
+    padding: 10px;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    border: 0;
+    color: white;
+    font-size: .5em;
+    font-weight: 400;
+    margin-top: 20px;
+    background-color: #C9C9C9; }
+    #whosaidthisshit input[type="submit"]:hover,
+    #whosaidthisshit a.button:hover {
+      background-color: #8e44ad;
+      -moz-transition: ease-in, 0.3s;
+      -o-transition: ease-in, 0.3s;
+      -webkit-transition: ease-in, 0.3s;
+      transition: ease-in, 0.3s; }
+
+ul.quotes {
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  max-width: 600px;
+  min-width: 300px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  font-size: .8em;
+  line-height: 2em; }
+
+/*# sourceMappingURL=style.css.map */
