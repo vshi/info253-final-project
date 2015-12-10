@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div id="ajax-snippet"></div>
+    <div class="header">
+    Sh*t the candidates say
+    </div>
+    {% for name, candidate_info in info.iteritems() %}
+        <div class="{{ candidate_info['party'] }} header">
+        Sh*t {{ name | safe }} says
+        </div>
+        <ul class="quotes">
+        {% for quote in candidate_info["quotes"] %}
+            <li>{{ quote }}</li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+    <div class="header" id="take-quiz"><a href="whosaidthisstuff">Take a quiz?</a></div>
+    <div class="header" id="get-drank"><a href="drinkwhen">Get tipsy?</a></div>
+
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+
