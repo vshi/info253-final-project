@@ -9,7 +9,7 @@ DRUNK_PHRASES = [
     "I'm inebriated",
     "I'm intoxicated"
 ]
-CANDIDATE_LIST = ["Hillary Clinton", "Bernie Sanders", "Donald Trump", "Ben Carson", "Ted Cruz", "Carly Fiorina", "Lindsey Graham", "Rand Paul", "Marco Rubio", "Mike Huckabee", "Rick Santorum"]
+CANDIDATE_LIST = ["Hillary Clinton", "Bernie Sanders", "Donald Trump", "Ben Carson", "Ted Cruz", "Carly Fiorina", "Lindsey Graham", "Rand Paul", "Marco Rubio", "Mike Huckabee"]
 DEMOCRATS = ["Hillary Clinton", "Bernie Sanders"]
 CANDIDATE_PHRASES = {
     "Hillary Clinton" : ("best", "worst"),
@@ -18,11 +18,10 @@ CANDIDATE_PHRASES = {
     "Ben Carson" : ("Washington", "politician"),
     "Ted Cruz" : ("Obamacare", "Constitution"),
     "Carly Fiorina" : ("Hillary", "Congress"),
-    "Lindsey Graham" : ("best", "worst"),
+    "Lindsey Graham" : ("Values", "Liberty"),
     "Rand Paul" : ("Liberty", "Tax"),
     "Marco Rubio" : ("Future", "Iran"),
-    "Mike Huckabee" : ("Clinton", "Faith"),
-    "Rick Santorum" : ("best", "worst")
+    "Mike Huckabee" : ("Clinton", "Faith")
 }
 def getRandomDrunkPhrase():
     r = random.randint(0, len(DRUNK_PHRASES) - 1)
