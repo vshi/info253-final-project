@@ -190,4 +190,7 @@ ul.quotes {
   -webkit-transition: ease-in, 0.3s;
   transition: ease-in, 0.3s; }
 
+.cloud {
+  height: 400px; }
+
 /*# sourceMappingURL=style.css.map */

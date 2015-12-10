@@ -32,5 +32,10 @@ def who_said_this_stuff(name=None):
     random_shit = helper.getRandomShit()
     return render_template("whosaidthisstuff.html", info=random_shit)
 
+@app.route('/clouds')
+def clouds(name=None):
+    candidate_clouds = helper.generateClouds()
+    return render_template('clouds.html', info=candidate_clouds)
+
 if __name__ == "__main__":
     app.run()

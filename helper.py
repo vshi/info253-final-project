@@ -1,7 +1,7 @@
 import json
 import urllib
 from bs4 import BeautifulSoup
-import random
+import random, twitter, string
 DRUNK_PHRASES = [
     "I'm drunk",
     "I'm wasted",
@@ -95,3 +95,37 @@ def generateCandidateInfo():
         candidate_info[candidate]["quotes"] = getCandidateQuotes(query_name, 3)
         candidate_info[candidate]["party"] = getCandidateParty(candidate)
     return candidate_info
+
+def twitterInfo(query):
+    api = twitter.Api(consumer_key='2DIC2A8HVULFML31XvpTY0Egr',
+                  consumer_secret='GHu0ZOwyDQq6G6YJ4OgzB0k4B8iUyRzdMnlmeCOJmRsVNWyq4Z',
+                  access_token_key='2674508256-gwiIyCrx10t1V4ztSelCfFosgetyrDC5jXoSbfJ',
+                  access_token_secret='Y6F9Nq8iJkc5BPZkqakoGsZeKmc1Ho2krmRdhKL4ziP4Y')
+
+    statuses = api.GetSearch(term=query, result_type='popular', count=10000)
+    status_text = [s.text for s in statuses]
+    word_counts = {}
+
+    ignored_words = ['a', 'to', 'the', 'has', 'should', 'on', 'is']
+    for status in status_text:
+        split_status = status.split()
+        split_status = [s.encode('ascii', errors='ignore') for s in split_status]
+        split_status = [s.translate(None, string.punctuation) for s in split_status]
+        for word in split_status:
+            if word in ignored_words:
+                break
+            if word in word_counts:
+                word_counts[word] += 1
+            else:
+                word_counts[word] = 1
+    cloud = []
+    for key, value in word_counts.iteritems():
+        cloud.append([key, value])
+    return cloud
+
+def generateClouds():
+    clouds = {}
+    for candidate in CANDIDATE_LIST:
+        candidate_str = candidate.replace(" ", "")
+        clouds[candidate_str] = twitterInfo(candidate)
+    return clouds
