@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="static/jqcloud.min.css">
+</head>
+<body>
+
+<div id="ajax-snippet"></div>
+    <div class="header">
+    Sh*t the candidates say
+    </div>
+    {% for candidate, cloud in info.iteritems() %}
+        <div class="{{candidate}} cloud" id="{{candidate}}">
+        
+        </div>
+    {% endfor %}
+    <a class="quiz" href="whosaidthisshit">Are you f***ing ready to take a quiz?</a>
+    
+
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script src="/static/script.js"></script>
+    <script type="text/javascript" src = "static/jqcloud.min.js"></script>
+    <script type="text/javascript">
+    {% for candidate, word_count in info.iteritems() %}
+        var id = '.' + '{{candidate}}'
+        var words = {{word_count|safe}}
+        var cloud = []
+        for (var i = 0; i < words.length; i++) {
+          cloud.push({text: words[i][0], weight: words[i][1]});
+        }
+        $(id).jQCloud(cloud);
+    {% endfor %}
+</script>
+</body>
+</html>
+  
