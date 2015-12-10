@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div id="ajax-snippet"></div>
+    
+    
+    <div class="header">
+    Who said this sh*t?
+    </div>
+    {% for quote in info.values() %}
+        {% if quote != "" %}
+            <div class="header question">
+                <p>{{ quote }}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+    
+    <div class="header form">
+    <form id="whosaidthisshit" method="POST">
+        {% for name, quote in info.iteritems() %}
+        <div class="answer">
+            <div class="error"></div>
+            {% if quote != "" %}
+                <input type="radio" name="sex" id="{{ loop.index }}" value="correct">
+            {% else %}
+                <input type="radio" name="sex" id="{{ loop.index }}" value="incorrect">
+            {% endif %}
+            {{ name }}
+        </div>
+      <br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+        <a href="/whosaidthisstuff" class="button" id="next">Play Again</a>
+        <a href="/" class="button">Exit</a>
+    </form> 
+    </div>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div class="header">Take a shot when... </div>
+
+	<div class="youtube-player {{ party }}">
+        <div class="youtube-player-container">
+		<iframe id="ytplayer" type="text/html" width="100%"  height="100%"
+		src="http://www.youtube.com/embed/{{ video_id }}?autoplay=1&origin=http://example.com"
+		frameborder="0"></iframe>
+        </div>
+	</div><div class="instructions">
+  <div class="video-title">{{ video_title }}</div>
+    
+  <div>Drink when {{ candidate }} says any of the following: </div>
+  {% for phrase in phrases %}
+    <div class="phrase-container">
+  	<button class="phrase">{{ phrase }}</button>
+    <div class="counter" id="{{ phrase }}">0</div>
+    </div>
+  {% endfor %}
+        
+    
+
+  	<a href="/drinkwhen" class="button">Another, another!</a>
+    <a href="/" class="button">{{ drunk_phrase }}, take me home</a>
+        </div>
+    <div class="popup">
+        <div class="popup-header">Whoah there</div>
+        <div class="popup-body">
+        <div class="warning"></div>
+        <button id="keep-going">I'm fine, keep going!</button>
+        <a href="/" class="button">{{ drunk_phrase }}, take me home</a>
+            </div>
+    </div>
+    <script src="/static/jquery-1.11.3.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
+

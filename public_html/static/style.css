@@ -39,7 +39,7 @@ body {
 
 .democrat {
   text-transform: lowercase;
-  background-color: #2A5682; }
+  background-color: #1B6EA6; }
 
 .form {
   background-color: #333; }
@@ -60,28 +60,49 @@ body {
     background-color: #4BA82C; }
   #whosaidthisshit #incorrect {
     background-color: #c0392b; }
-  #whosaidthisshit input[type="submit"],
-  #whosaidthisshit a.button {
-    text-transform: capitalize;
-    width: 300px;
-    display: block;
-    border-radius: 4px;
-    padding: 10px;
-    box-sizing: border-box;
-    padding: 10px 30px;
-    border: 0;
-    color: white;
-    font-size: .5em;
-    font-weight: 400;
-    margin-top: 20px;
-    background-color: #C9C9C9; }
-    #whosaidthisshit input[type="submit"]:hover,
-    #whosaidthisshit a.button:hover {
-      background-color: #8e44ad;
-      -moz-transition: ease-in, 0.3s;
-      -o-transition: ease-in, 0.3s;
-      -webkit-transition: ease-in, 0.3s;
-      transition: ease-in, 0.3s; }
+
+input[type="submit"],
+a.button,
+button {
+  text-align: center;
+  text-transform: none;
+  width: 300px;
+  display: block;
+  border-radius: 4px;
+  padding: 10px;
+  box-sizing: border-box;
+  padding: 10px 30px;
+  border: 0;
+  color: white;
+  font-size: 1em;
+  font-weight: 400;
+  margin-top: 20px;
+  background-color: #C9C9C9;
+  margin-right: auto;
+  margin-left: auto; }
+  input[type="submit"]:hover,
+  a.button:hover,
+  button:hover {
+    background-color: #8e44ad;
+    -moz-transition: ease-in, 0.3s;
+    -o-transition: ease-in, 0.3s;
+    -webkit-transition: ease-in, 0.3s;
+    transition: ease-in, 0.3s; }
+
+.phrase-container {
+  text-align: center; }
+
+button.phrase {
+  background-color: #8e44ad;
+  display: inline-block;
+  margin-right: 15px;
+  width: auto; }
+
+.counter {
+  display: inline-block;
+  font-size: 2em;
+  font-weight: 200;
+  vertical-align: bottom; }
 
 ul.quotes {
   margin-right: auto;
@@ -93,5 +114,80 @@ ul.quotes {
   padding-bottom: 25px;
   font-size: .8em;
   line-height: 2em; }
+
+.youtube-player {
+  width: 60%;
+  text-align: center;
+  padding: 30px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 50px 0; }
+
+.youtube-player-container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  height: 400px;
+  max-width: 640px; }
+
+.instructions {
+  width: 40%;
+  box-sizing: border-box;
+  padding: 15px;
+  display: inline-block;
+  vertical-align: top; }
+
+.video-title {
+  text-align: left;
+  font-size: .8em;
+  text-transform: uppercase;
+  font-weight: 200;
+  padding: 8px 0;
+  margin-bottom: 24px;
+  border-bottom: 1px solid white; }
+
+.popup {
+  display: none;
+  -webkit-box-shadow: 0px 2px 8px #000;
+  -moz-box-shadow: 0px 2px 8px #000;
+  box-shadow: 0px 2px 8px #000;
+  background-color: rgba(0, 0, 0, 0.85);
+  text-align: center;
+  border-radius: 8px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+  .popup .popup-header {
+    background-color: #34495e;
+    padding: 20px 0;
+    font-size: 1em;
+    font-weight: 200;
+    text-transform: uppercase; }
+  .popup .popup-body {
+    padding: 75px; }
+
+#take-quiz a:link,
+#take-quiz a:visited,
+#take-quiz a:active,
+#take-quiz a:hover,
+#get-drank a:link,
+#get-drank a:visited,
+#get-drank a:active,
+#get-drank a:hover {
+  text-decoration: none;
+  font-weight: inherit;
+  color: inherit; }
+#take-quiz:hover,
+#get-drank:hover {
+  background-color: #8e44ad;
+  -moz-transition: ease-in, 0.3s;
+  -o-transition: ease-in, 0.3s;
+  -webkit-transition: ease-in, 0.3s;
+  transition: ease-in, 0.3s; }
 
 /*# sourceMappingURL=style.css.map */
