@@ -1,3 +1,17 @@
+import shelve
+from subprocess import check_output
+import flask
+from flask import request, Flask, render_template, jsonify, abort, redirect
+from os import environ
+
+import os
+import sys
+import json
+import hashlib
+
+import random, string
+
+import twitter, json
 from flask import Flask
 from flask import render_template
 
@@ -5,11 +19,45 @@ import helper
 import youtube
 
 app = Flask(__name__, static_folder="public_html/static", template_folder="public_html/templates")
+db = shelve.open("shorten.db")
 @app.route('/')
 
 
 def load_root():
     return render_template('index.html')
+
+@app.route("/create", methods=['POST'])
+def create():
+    """
+    This POST request creates an association between a short url and a full url
+    and saves it in the database (the dictionary db)
+    """
+    vid_title = request.form['videotitle']
+    vid_id = request.form['videoid']
+    candidate = request.form['candidate']
+    candidate_phrases = helper.getCandidatePhrases(candidate)
+    party = helper.getCandidateParty(candidate)
+    drunk_phrase = helper.getRandomDrunkPhrase()
+    long_url = request.form['longurl']
+    short_url = ''.join(random.choice(string.lowercase+string.digits) for i in range(6))
+    if long_url not in db.values():
+        db[short_url] = long_url
+    else:
+        for s in db:
+            if db[s] == long_url:
+                short_url = s
+                break
+    return render_template('drinkwhen.html', short=short_url, long=long_url, video_title=vid_title, video_id=vid_id, candidate=candidate, phrases=candidate_phrases, party=party, drunk_phrase= drunk_phrase)
+
+@app.route("/short/<short>", methods=['GET'])
+def load_redirect(short):
+    """
+    Redirect the request to the URL associated =short=, otherwise return 404
+    NOT FOUND
+    """
+    if short not in db:
+        return render_template('404.html'), 404
+    return redirect(db[short])
 
 @app.route('/drinkwhen')
 def drink_when(name=None):

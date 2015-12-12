@@ -26,10 +26,34 @@
   {% endfor %}
         
     
+    
 
   	<a href="/drinkwhen" class="button">Another, another!</a>
     <a href="/" class="button">{{ drunk_phrase }}, take me home</a>
-        </div>
+    
+
+    <section class="container">
+    <p>To create a short youtube link to share, just click submit below!</p>
+    <form action="/create" id="url-form" method="POST">
+      <div class="input">
+        <input type="hidden" name="candidate" value="{{ candidate }}">
+        <input type="hidden" name="videoid" value="{{ video_id }}">
+        <input type="hidden" name="videotitle" value="{{ video_title }}">
+        <label>Short URL:</label>
+        <input type="text" name="shorturl" id="short" placeholder="Your short URL will appear here!" value="{{ short }}">
+      </div>
+      <div class="input">
+        <label>Long URL:</label>
+        <input type="text" name="longurl" id="long" value="http://www.youtube.com/watch?v={{ video_id }}">
+      </div>
+      <input type="submit" name="submit-path" id="submit">
+    </form>
+  </section> 
+
+
+    </div>
+
+      
     <div class="popup">
         <div class="popup-header">Whoah there</div>
         <div class="popup-body">
